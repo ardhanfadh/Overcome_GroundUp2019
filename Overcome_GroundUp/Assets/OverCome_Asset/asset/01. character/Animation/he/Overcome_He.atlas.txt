@@ -1,0 +1,139 @@
+
+Overcome_He.png
+size: 2048,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+He-glow_0000_white-glow-gauss
+  rotate: false
+  xy: 2, 133
+  size: 523, 877
+  orig: 523, 877
+  offset: 0, 0
+  index: -1
+He-glow_0001_white-glow-med
+  rotate: false
+  xy: 527, 250
+  size: 406, 760
+  orig: 406, 760
+  offset: 0, 0
+  index: -1
+He-glow_0002_white-glow-1
+  rotate: false
+  xy: 935, 266
+  size: 389, 744
+  orig: 389, 744
+  offset: 0, 0
+  index: -1
+SarmA01
+  rotate: false
+  xy: 1326, 855
+  size: 32, 77
+  orig: 32, 77
+  offset: 0, 0
+  index: -1
+SarmA02
+  rotate: true
+  xy: 658, 206
+  size: 15, 72
+  orig: 15, 72
+  offset: 0, 0
+  index: -1
+SarmA03
+  rotate: false
+  xy: 625, 167
+  size: 15, 24
+  orig: 15, 24
+  offset: 0, 0
+  index: -1
+Sbody
+  rotate: false
+  xy: 2, 2
+  size: 55, 129
+  orig: 55, 129
+  offset: 0, 0
+  index: -1
+Shead
+  rotate: false
+  xy: 1326, 934
+  size: 63, 76
+  orig: 63, 76
+  offset: 0, 0
+  index: -1
+SlegA01
+  rotate: true
+  xy: 527, 166
+  size: 25, 96
+  orig: 25, 96
+  offset: 0, 0
+  index: -1
+SlegA02
+  rotate: true
+  xy: 124, 114
+  size: 17, 82
+  orig: 17, 82
+  offset: 0, 0
+  index: -1
+SlegA03
+  rotate: false
+  xy: 935, 251
+  size: 33, 13
+  orig: 33, 13
+  offset: 0, 0
+  index: -1
+armA01
+  rotate: true
+  xy: 1391, 978
+  size: 32, 77
+  orig: 32, 77
+  offset: 0, 0
+  index: -1
+armA02
+  rotate: true
+  xy: 756, 233
+  size: 15, 72
+  orig: 15, 72
+  offset: 0, 0
+  index: -1
+armA03
+  rotate: false
+  xy: 1326, 829
+  size: 15, 24
+  orig: 15, 24
+  offset: 0, 0
+  index: -1
+body
+  rotate: true
+  xy: 527, 193
+  size: 55, 129
+  orig: 55, 129
+  offset: 0, 0
+  index: -1
+head
+  rotate: false
+  xy: 59, 55
+  size: 63, 76
+  orig: 63, 76
+  offset: 0, 0
+  index: -1
+legA01
+  rotate: true
+  xy: 658, 223
+  size: 25, 96
+  orig: 25, 96
+  offset: 0, 0
+  index: -1
+legA02
+  rotate: true
+  xy: 527, 147
+  size: 17, 82
+  orig: 17, 82
+  offset: 0, 0
+  index: -1
+legA03
+  rotate: false
+  xy: 59, 40
+  size: 33, 13
+  orig: 33, 13
+  offset: 0, 0
+  index: -1
