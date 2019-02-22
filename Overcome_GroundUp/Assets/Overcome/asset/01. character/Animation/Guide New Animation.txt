@@ -1,0 +1,21 @@
+State animasi:
+- idle
+- flying D 		(digunakan apabila player terbang ke bawah/ terkena force ke arah bawah)
+- flying D Merge 	(digunakan apabila player colission dengan shadow dalam kondisi terbang ke bawah)
+- flying L 		(digunakan apabila player terbang ke kiri)
+- flying L Merge 	(digunakan apabila player colission dengan shadow dalam kondisi terbang ke kiri)
+- flying R 		(digunakan apabila player terbang ke kanan)
+- flying R Merge 	(digunakan apabila player colission dengan shadow dalam kondisi terbang ke kanan)
+- flying U 		(digunakan apabila player terbang ke atas)
+- flying U Merge	(digunakan apabila player colission dengan shadow dalam kondisi terbang ke atas)
+- startjump L		(digunakan apabila player swipe ke kiri, setelah animasi berakhir dilanjutkan dengan flying L)
+- startjump R		(digunakan apabila player swipe ke kanan, setelah animasi berakhir dilanjutkan dengan flying R)
+- startjump U		(digunakan apabila player swipe ke atas, setelah animasi berakhir dilanjutkan dengan flying U)
+- wall A		(digunakan apabila player colission dengan wall dalam kondisi flying L / flying U)
+- wall A to idle	(digunakan setelah wall A, lalu dilanjutkan dengan idle)
+- wall B		(digunakan apabila player colission dengan wall dalam kondisi flying R / flying U)
+- wall B to idle	(digunakan setelah wall B, lalu dilanjutkan dengan idle)
+
+Unused state:
+- Flying to D
+- Wall U

@@ -1,0 +1,24 @@
+fileFormatVersion: 2
+guid: 330ea73f8a706c1408adf4549e2e3b41
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Futura Bk BT
+  fontNames:
+  - Futura Bk BT
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: c5e030786384ee343864c437a213be7e, type: 3}
+  - {fileID: 12800000, guid: 47bcb9bd520781548b28b757604c5581, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

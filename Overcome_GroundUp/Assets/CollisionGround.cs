@@ -5,9 +5,11 @@ using UnityEngine;
 public class CollisionGround : MonoBehaviour {
     public bool isGround;
     public BoxCollider2D box2D;
+    public bool isTriggerBox;
 	// Use this for initialization
 	void Start () {
         isGround = false;
+        isTriggerBox = false;
 	}
 	
 	// Update is called once per frame
@@ -15,18 +17,27 @@ public class CollisionGround : MonoBehaviour {
 	}
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Wall")
+        if (!isTriggerBox)
         {
-            isGround = true;
-            box2D.isTrigger = true;
+            if (collision.gameObject.tag == "Wall")
+            {
+                isGround = true;
+                box2D.isTrigger = true;
+                isTriggerBox = true;
+            }
         }
     }
+    
 
-    private void OnCollisionExit2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Wall")
+        if (collision.gameObject.tag != "Wall")
         {
             isGround = false;
+        }
+        else
+        {
+            isGround = true;
         }
     }
 
