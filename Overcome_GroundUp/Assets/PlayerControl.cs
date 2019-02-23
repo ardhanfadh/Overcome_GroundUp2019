@@ -39,6 +39,7 @@ public class PlayerControl : MonoBehaviour {
     public detectingGround kananDetect;
     public bool KananGround;
     public bool firstTime;
+    public bool isCompleted;
 
 	// Use this for initialization
 	void Start () {
@@ -47,6 +48,9 @@ public class PlayerControl : MonoBehaviour {
         GV = 3f;
         ForceAdded = 200;
 
+        animPlayer.SetBool("isCompleted", false);
+        animCollision.SetBool("isCompleted", false);
+        isCompleted = false;
         animPlayer.SetInteger("X", 0);
         animPlayer.SetInteger("Y", -1);
         animCollision.SetInteger("X", 0);
@@ -155,6 +159,11 @@ public class PlayerControl : MonoBehaviour {
         bawahGround = bawahDetect.isDetected;
         KiriGround = kiriDetect.isDetected;
         KananGround = kananDetect.isDetected;
+        if (isCompleted)
+        {
+            animPlayer.SetBool("isFinished", false);
+            animCollision.SetBool("isFinished", false);
+        }
     }
     // Update is called once per frame
     void Update () {
@@ -523,6 +532,18 @@ public class PlayerControl : MonoBehaviour {
         {
             StartCoroutine(animLanding());
         }
+
+        if (collision.gameObject.tag == "Goal")
+        {
+            CompletedGoal();
+        }
+    }
+
+    void CompletedGoal()
+    {
+        animPlayer.SetBool("isCompleted", true);
+        animCollision.SetBool("isCompleted", true);
+        isCompleted = true;
     }
 
     void Landing()
@@ -535,8 +556,5 @@ public class PlayerControl : MonoBehaviour {
         animPlayer.SetBool("Bangun", true);
         animPlayer.SetBool("Bangun", true);
     }
-
-    public void anim_Finished()
-    {
-    }
+    
 }

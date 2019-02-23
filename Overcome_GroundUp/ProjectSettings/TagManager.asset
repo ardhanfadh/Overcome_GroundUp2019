@@ -6,6 +6,7 @@ TagManager:
   tags:
   - onlyTrigger
   - Wall
+  - Goal
   layers:
   - Default
   - TransparentFX
