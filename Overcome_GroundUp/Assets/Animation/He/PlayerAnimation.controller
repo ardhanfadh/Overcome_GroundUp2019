@@ -13,43 +13,43 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Y
     m_Type: 3
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: StartJump
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 1
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Terbang
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Mendarat
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: isFinished
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Bangun
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -79,6 +79,9 @@ MonoBehaviour:
   isLoop: 0
   isFlipX: 0
   isFlipY: 0
+  isEnd: 0
+  isStarted: 0
+  animator: {fileID: 0}
 --- !u!114 &114015855017036168
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -95,6 +98,9 @@ MonoBehaviour:
   isLoop: 0
   isFlipX: 0
   isFlipY: 0
+  isEnd: 0
+  isStarted: 0
+  animator: {fileID: 0}
 --- !u!114 &114054506732715570
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -111,6 +117,9 @@ MonoBehaviour:
   isLoop: 1
   isFlipX: 0
   isFlipY: 0
+  isEnd: 0
+  isStarted: 0
+  animator: {fileID: 0}
 --- !u!114 &114078072871631334
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -127,6 +136,9 @@ MonoBehaviour:
   isLoop: 1
   isFlipX: 0
   isFlipY: 0
+  isEnd: 0
+  isStarted: 0
+  animator: {fileID: 0}
 --- !u!114 &114298178091616388
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -143,6 +155,9 @@ MonoBehaviour:
   isLoop: 0
   isFlipX: 0
   isFlipY: 0
+  isEnd: 0
+  isStarted: 0
+  animator: {fileID: 0}
 --- !u!114 &114306481844806972
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -159,6 +174,9 @@ MonoBehaviour:
   isLoop: 0
   isFlipX: 0
   isFlipY: 0
+  isEnd: 0
+  isStarted: 0
+  animator: {fileID: 0}
 --- !u!114 &114309242296118786
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -175,6 +193,9 @@ MonoBehaviour:
   isLoop: 0
   isFlipX: 0
   isFlipY: 0
+  isEnd: 0
+  isStarted: 0
+  animator: {fileID: 0}
 --- !u!114 &114318964114274922
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -191,6 +212,9 @@ MonoBehaviour:
   isLoop: 0
   isFlipX: 0
   isFlipY: 0
+  isEnd: 0
+  isStarted: 0
+  animator: {fileID: 0}
 --- !u!114 &114476614388815744
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -207,6 +231,9 @@ MonoBehaviour:
   isLoop: 0
   isFlipX: 0
   isFlipY: 0
+  isEnd: 0
+  isStarted: 0
+  animator: {fileID: 0}
 --- !u!114 &114556509796266034
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -223,6 +250,9 @@ MonoBehaviour:
   isLoop: 1
   isFlipX: 0
   isFlipY: 0
+  isEnd: 0
+  isStarted: 0
+  animator: {fileID: 0}
 --- !u!114 &114583619937643276
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -239,6 +269,9 @@ MonoBehaviour:
   isLoop: 0
   isFlipX: 0
   isFlipY: 0
+  isEnd: 0
+  isStarted: 0
+  animator: {fileID: 0}
 --- !u!114 &114674112872486596
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -255,6 +288,9 @@ MonoBehaviour:
   isLoop: 0
   isFlipX: 0
   isFlipY: 0
+  isEnd: 0
+  isStarted: 0
+  animator: {fileID: 0}
 --- !u!114 &114767171856156720
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -271,6 +307,9 @@ MonoBehaviour:
   isLoop: 0
   isFlipX: 0
   isFlipY: 0
+  isEnd: 0
+  isStarted: 0
+  animator: {fileID: 0}
 --- !u!114 &114771009548847006
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -287,6 +326,9 @@ MonoBehaviour:
   isLoop: 0
   isFlipX: 0
   isFlipY: 0
+  isEnd: 0
+  isStarted: 0
+  animator: {fileID: 0}
 --- !u!114 &114822058540375876
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -303,6 +345,9 @@ MonoBehaviour:
   isLoop: 0
   isFlipX: 0
   isFlipY: 0
+  isEnd: 0
+  isStarted: 0
+  animator: {fileID: 0}
 --- !u!114 &114967385884531602
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -319,6 +364,9 @@ MonoBehaviour:
   isLoop: 1
   isFlipX: 0
   isFlipY: 0
+  isEnd: 0
+  isStarted: 0
+  animator: {fileID: 0}
 --- !u!1101 &1101002679738049738
 AnimatorStateTransition:
   m_ObjectHideFlags: 3
@@ -1055,18 +1103,6 @@ AnimatorStateTransition:
   - m_ConditionMode: 1
     m_ConditionEvent: StartJump
     m_EventTreshold: 0
-  - m_ConditionMode: 2
-    m_ConditionEvent: Terbang
-    m_EventTreshold: 0
-  - m_ConditionMode: 2
-    m_ConditionEvent: Mendarat
-    m_EventTreshold: 0
-  - m_ConditionMode: 2
-    m_ConditionEvent: isFinished
-    m_EventTreshold: 0
-  - m_ConditionMode: 2
-    m_ConditionEvent: Bangun
-    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102357973166456290}
   m_Solo: 0
@@ -1144,18 +1180,6 @@ AnimatorStateTransition:
     m_EventTreshold: 0
   - m_ConditionMode: 1
     m_ConditionEvent: StartJump
-    m_EventTreshold: 0
-  - m_ConditionMode: 2
-    m_ConditionEvent: Terbang
-    m_EventTreshold: 0
-  - m_ConditionMode: 2
-    m_ConditionEvent: Mendarat
-    m_EventTreshold: 0
-  - m_ConditionMode: 2
-    m_ConditionEvent: isFinished
-    m_EventTreshold: 0
-  - m_ConditionMode: 2
-    m_ConditionEvent: Bangun
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102273002496283814}
@@ -1280,6 +1304,18 @@ AnimatorStateTransition:
   - m_ConditionMode: 1
     m_ConditionEvent: isFinished
     m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: StartJump
+    m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: Mendarat
+    m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: Terbang
+    m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: Bangun
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102776741238601242}
   m_Solo: 0
@@ -1288,10 +1324,10 @@ AnimatorStateTransition:
   serializedVersion: 3
   m_TransitionDuration: 0.25
   m_TransitionOffset: 0
-  m_ExitTime: 0.75
-  m_HasExitTime: 1
-  m_HasFixedDuration: 1
-  m_InterruptionSource: 0
+  m_ExitTime: 0.8125
+  m_HasExitTime: 0
+  m_HasFixedDuration: 0
+  m_InterruptionSource: 3
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
 --- !u!1101 &1101171343830196600
@@ -1398,8 +1434,8 @@ AnimatorStateTransition:
   m_TransitionOffset: 0
   m_ExitTime: 0.75
   m_HasExitTime: 0
-  m_HasFixedDuration: 1
-  m_InterruptionSource: 0
+  m_HasFixedDuration: 0
+  m_InterruptionSource: 2
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
 --- !u!1101 &1101189102500676358
@@ -2216,6 +2252,18 @@ AnimatorStateTransition:
   - m_ConditionMode: 1
     m_ConditionEvent: isFinished
     m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: StartJump
+    m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: Terbang
+    m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: Mendarat
+    m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: Bangun
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102776741238601242}
   m_Solo: 0
@@ -2225,9 +2273,9 @@ AnimatorStateTransition:
   m_TransitionDuration: 0.25
   m_TransitionOffset: 0
   m_ExitTime: 0.8125
-  m_HasExitTime: 1
-  m_HasFixedDuration: 1
-  m_InterruptionSource: 0
+  m_HasExitTime: 0
+  m_HasFixedDuration: 0
+  m_InterruptionSource: 3
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
 --- !u!1101 &1101390930306542436
@@ -2302,10 +2350,7 @@ AnimatorStateTransition:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: 
-  m_Conditions:
-  - m_ConditionMode: 1
-    m_ConditionEvent: Bangun
-    m_EventTreshold: 0
+  m_Conditions: []
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102809414554042230}
   m_Solo: 0
@@ -2316,8 +2361,8 @@ AnimatorStateTransition:
   m_TransitionOffset: 0
   m_ExitTime: 0
   m_HasExitTime: 0
-  m_HasFixedDuration: 1
-  m_InterruptionSource: 0
+  m_HasFixedDuration: 0
+  m_InterruptionSource: 2
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
 --- !u!1101 &1101410188766551480
@@ -2326,10 +2371,7 @@ AnimatorStateTransition:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: 
-  m_Conditions:
-  - m_ConditionMode: 1
-    m_ConditionEvent: Bangun
-    m_EventTreshold: 0
+  m_Conditions: []
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102217928203185718}
   m_Solo: 0
@@ -2339,9 +2381,9 @@ AnimatorStateTransition:
   m_TransitionDuration: 0.25
   m_TransitionOffset: 0
   m_ExitTime: 0.75
-  m_HasExitTime: 0
+  m_HasExitTime: 1
   m_HasFixedDuration: 1
-  m_InterruptionSource: 0
+  m_InterruptionSource: 2
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
 --- !u!1101 &1101414717984282378
@@ -2364,8 +2406,8 @@ AnimatorStateTransition:
   m_TransitionOffset: 0
   m_ExitTime: 0.75
   m_HasExitTime: 0
-  m_HasFixedDuration: 1
-  m_InterruptionSource: 0
+  m_HasFixedDuration: 0
+  m_InterruptionSource: 2
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
 --- !u!1101 &1101414847770587130
@@ -2777,6 +2819,18 @@ AnimatorStateTransition:
   - m_ConditionMode: 1
     m_ConditionEvent: isFinished
     m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: StartJump
+    m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: Terbang
+    m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: Mendarat
+    m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: Bangun
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102776741238601242}
   m_Solo: 0
@@ -2786,9 +2840,9 @@ AnimatorStateTransition:
   m_TransitionDuration: 0.25
   m_TransitionOffset: 0
   m_ExitTime: 0.75
-  m_HasExitTime: 1
-  m_HasFixedDuration: 1
-  m_InterruptionSource: 0
+  m_HasExitTime: 0
+  m_HasFixedDuration: 0
+  m_InterruptionSource: 3
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
 --- !u!1101 &1101499727282680430
@@ -2832,8 +2886,8 @@ AnimatorStateTransition:
   m_TransitionOffset: 0
   m_ExitTime: 0.75
   m_HasExitTime: 0
-  m_HasFixedDuration: 1
-  m_InterruptionSource: 0
+  m_HasFixedDuration: 0
+  m_InterruptionSource: 2
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
 --- !u!1101 &1101510515026588954
@@ -3308,18 +3362,6 @@ AnimatorStateTransition:
   - m_ConditionMode: 1
     m_ConditionEvent: StartJump
     m_EventTreshold: 0
-  - m_ConditionMode: 2
-    m_ConditionEvent: Terbang
-    m_EventTreshold: 0
-  - m_ConditionMode: 2
-    m_ConditionEvent: Mendarat
-    m_EventTreshold: 0
-  - m_ConditionMode: 2
-    m_ConditionEvent: isFinished
-    m_EventTreshold: 0
-  - m_ConditionMode: 2
-    m_ConditionEvent: Bangun
-    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102706114996225114}
   m_Solo: 0
@@ -3544,18 +3586,6 @@ AnimatorStateTransition:
     m_EventTreshold: 0
   - m_ConditionMode: 1
     m_ConditionEvent: StartJump
-    m_EventTreshold: 0
-  - m_ConditionMode: 2
-    m_ConditionEvent: Terbang
-    m_EventTreshold: 0
-  - m_ConditionMode: 2
-    m_ConditionEvent: Mendarat
-    m_EventTreshold: 0
-  - m_ConditionMode: 2
-    m_ConditionEvent: isFinished
-    m_EventTreshold: 0
-  - m_ConditionMode: 2
-    m_ConditionEvent: Bangun
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102566776446243910}
@@ -4137,8 +4167,8 @@ AnimatorStateTransition:
   m_TransitionOffset: 0
   m_ExitTime: 0.75
   m_HasExitTime: 0
-  m_HasFixedDuration: 1
-  m_InterruptionSource: 0
+  m_HasFixedDuration: 0
+  m_InterruptionSource: 2
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
 --- !u!1101 &1101717758906606958
@@ -4266,7 +4296,7 @@ AnimatorStateTransition:
   m_TransitionOffset: 0
   m_ExitTime: 0.75
   m_HasExitTime: 0
-  m_HasFixedDuration: 1
+  m_HasFixedDuration: 0
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
@@ -4741,10 +4771,7 @@ AnimatorStateTransition:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: 
-  m_Conditions:
-  - m_ConditionMode: 1
-    m_ConditionEvent: Bangun
-    m_EventTreshold: 0
+  m_Conditions: []
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102543084053278046}
   m_Solo: 0
@@ -4754,9 +4781,9 @@ AnimatorStateTransition:
   m_TransitionDuration: 0.25
   m_TransitionOffset: 0
   m_ExitTime: 0.75
-  m_HasExitTime: 0
-  m_HasFixedDuration: 1
-  m_InterruptionSource: 0
+  m_HasExitTime: 1
+  m_HasFixedDuration: 0
+  m_InterruptionSource: 2
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
 --- !u!1101 &1101848883361607474
@@ -5039,6 +5066,18 @@ AnimatorStateTransition:
   - m_ConditionMode: 1
     m_ConditionEvent: isFinished
     m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: StartJump
+    m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: Terbang
+    m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: Bangun
+    m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: Mendarat
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102776741238601242}
   m_Solo: 0
@@ -5048,9 +5087,9 @@ AnimatorStateTransition:
   m_TransitionDuration: 0.25
   m_TransitionOffset: 0
   m_ExitTime: 0.75
-  m_HasExitTime: 1
-  m_HasFixedDuration: 1
-  m_InterruptionSource: 0
+  m_HasExitTime: 0
+  m_HasFixedDuration: 0
+  m_InterruptionSource: 3
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
 --- !u!1101 &1101932515053353928
@@ -5107,10 +5146,7 @@ AnimatorStateTransition:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: 
-  m_Conditions:
-  - m_ConditionMode: 1
-    m_ConditionEvent: Bangun
-    m_EventTreshold: 0
+  m_Conditions: []
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102833481393258766}
   m_Solo: 0
@@ -5121,8 +5157,8 @@ AnimatorStateTransition:
   m_TransitionOffset: 0
   m_ExitTime: 0.75
   m_HasExitTime: 0
-  m_HasFixedDuration: 1
-  m_InterruptionSource: 0
+  m_HasFixedDuration: 0
+  m_InterruptionSource: 2
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
 --- !u!1101 &1101936895065813964
@@ -6545,7 +6581,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: BerdiriDariMendarat_Kiri
-  m_Speed: 1
+  m_Speed: 1.5
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 1101496053822518788}
@@ -6558,7 +6594,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 443779081b20c1e44aea3bb0053379cd, type: 2}
+  m_Motion: {fileID: 0}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -8300,7 +8336,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: BerdiriDariMendarat_Bawah
-  m_Speed: 1
+  m_Speed: 1.5
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 1101388574982381386}
@@ -9277,7 +9313,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 298ec419b59e5424da45e6b0eb1c589c, type: 2}
+  m_Motion: {fileID: 0}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -9445,7 +9481,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: BerdiriDariMendarat_Kanan
-  m_Speed: 1
+  m_Speed: 1.5
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 1101167458605576530}
@@ -9458,7 +9494,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 265c15013d863ea4595a05ef0e263b86, type: 2}
+  m_Motion: {fileID: 7400000, guid: f48e3d7719a304e468e548cd3b66b9e3, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

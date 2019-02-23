@@ -9,6 +9,9 @@ public class SpineAnimationScript : StateMachineBehaviour {
     public bool isLoop;
     public bool isFlipX;
     public bool isFlipY;
+    public bool isEnd;
+    public bool isStarted;
+    public Animator animator;
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     //override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
     //
@@ -19,6 +22,7 @@ public class SpineAnimationScript : StateMachineBehaviour {
         anim.state.SetAnimation(0, animationName, isLoop).TimeScale = animationSpeed;
         anim.skeleton.FlipX = isFlipX;
         anim.skeleton.FlipY = isFlipY;
+        isStarted = true;
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

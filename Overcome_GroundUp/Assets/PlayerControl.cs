@@ -26,28 +26,36 @@ public class PlayerControl : MonoBehaviour {
     public BoxCollider2D box2D;
     public CollisionGround cG;
     public float GV;
+    public float ForceAdded;
     public bool bodyGround;
     public bool justOnce;
 
     public detectingGround atasDetect;
+    public bool atasGround;
     public detectingGround bawahDetect;
+    public bool bawahGround;
     public detectingGround kiriDetect;
+    public bool KiriGround;
     public detectingGround kananDetect;
+    public bool KananGround;
+    public bool firstTime;
 
 	// Use this for initialization
 	void Start () {
         GameObject.Find("SwipeController").GetComponent<SwipeControl>().SetMethodToCall(SwipeDetection);
         //Debug
-        GV = 1f;
+        GV = 3f;
+        ForceAdded = 200;
 
         animPlayer.SetInteger("X", 0);
         animPlayer.SetInteger("Y", -1);
         animCollision.SetInteger("X", 0);
         animCollision.SetInteger("Y", -1);
+        firstTime = true;
         Terbang(Direction.Bawah);
         StartCoroutine(animJump());
         LastDirection = Direction.Bawah;
-
+        justOnce = false;
     }
 
     private void SwipeDetection(SwipeControl.SWIPE_DIRECTION iDirection)
@@ -56,8 +64,6 @@ public class PlayerControl : MonoBehaviour {
         switch (iDirection)
         {
             case SwipeControl.SWIPE_DIRECTION.SD_DOWN:
-                if (animPlayer.GetBool("isFinished"))
-                {
                     if (LastDirection == Direction.Bawah)
                     {
                         break;
@@ -68,15 +74,15 @@ public class PlayerControl : MonoBehaviour {
 
                         rgbd2D.constraints = RigidbodyConstraints2D.FreezePositionX;
                         Terbang(pDirection);
+                    animPlayer.SetBool("isFinished", false);
+                    animCollision.SetBool("isFinished", false);
                     }
-                }
                 //what to do buat Bawah
                 //ganti gravity jadi ke bawah
                 //ganti animasi jadi ke bawah pake coroutine.
                 break;
             case SwipeControl.SWIPE_DIRECTION.SD_LEFT:
-                if (animPlayer.GetBool("isFinished"))
-                {
+
                     if (LastDirection == Direction.Kiri)
                     {
                         break;
@@ -87,7 +93,8 @@ public class PlayerControl : MonoBehaviour {
 
                         rgbd2D.constraints = RigidbodyConstraints2D.FreezePositionY;
                         Terbang(pDirection);
-                    }
+                    animPlayer.SetBool("isFinished", false);
+                    animCollision.SetBool("isFinished", false);
                 }
                
                 //what to do buat Kiri
@@ -95,8 +102,7 @@ public class PlayerControl : MonoBehaviour {
                 //ganti animasi jadi ke kiri pake coroutine.
                 break;
             case SwipeControl.SWIPE_DIRECTION.SD_RIGHT:
-                if (animPlayer.GetBool("isFinished"))
-                {
+
                     if (LastDirection == Direction.Kanan)
                     {
                         break;
@@ -108,15 +114,14 @@ public class PlayerControl : MonoBehaviour {
                         rgbd2D.constraints = RigidbodyConstraints2D.FreezePositionY;
 
                         Terbang(pDirection);
-                    }
+                    animPlayer.SetBool("isFinished", false);
+                    animCollision.SetBool("isFinished", false);
                 }
                 //what to do buat Kanan
                 //ganti gravity jadi ke kanan
                 //ganti animasi jadi ke kanan pake coroutine
                 break;
             case SwipeControl.SWIPE_DIRECTION.SD_UP:
-                if (animPlayer.GetBool("isFinished"))
-                {
                     if (LastDirection == Direction.Atas)
                     {
                         break;
@@ -127,7 +132,8 @@ public class PlayerControl : MonoBehaviour {
                         rgbd2D.constraints = RigidbodyConstraints2D.FreezePositionX;
 
                         Terbang(pDirection);
-                    }
+                    animPlayer.SetBool("isFinished", false);
+                    animCollision.SetBool("isFinished", false);
                 }
                 /*
                 if (animPlayer.GetBool("isFinished") == true)
@@ -142,8 +148,16 @@ public class PlayerControl : MonoBehaviour {
                 break;
         }
     }
-	// Update is called once per frame
-	void Update () {
+
+    private void FixedUpdate()
+    {
+        atasGround = atasDetect.isDetected;
+        bawahGround = bawahDetect.isDetected;
+        KiriGround = kiriDetect.isDetected;
+        KananGround = kananDetect.isDetected;
+    }
+    // Update is called once per frame
+    void Update () {
         /*
         bodyGround = cG.isGround;
 
@@ -163,108 +177,223 @@ public class PlayerControl : MonoBehaviour {
 
     private void Terbang(Direction pDirection)
     {
-        if (pDirection == Direction.Atas)
+        justOnce = false;
+        if (firstTime)
         {
-            Physics2D.gravity = Vector2.up * GV;
-            rgbd2D.velocity = Vector2.zero;
-            rgbd2D.AddForce(Vector2.up * 10);
-
-            if (LastDirection == Direction.Kanan)
+            firstTime = false;
+            if (pDirection == Direction.Atas)
             {
-                AnimTerbang(Direction.Kanan);
+                Physics2D.gravity = Vector2.up * GV;
+                rgbd2D.velocity = Vector2.zero;
+                rgbd2D.AddForce(Vector2.up * ForceAdded);
+
+                if (LastDirection == Direction.Kanan)
+                {
+                    AnimTerbang(Direction.Kanan);
+                }
+
+                if (LastDirection == Direction.Kiri)
+                {
+                    AnimTerbang(Direction.Kiri);
+                }
+
+                if (LastDirection == Direction.Bawah)
+                {
+                    AnimTerbang(Direction.Atas);
+                }
+
+                //Animation
+                /*
+                animPlayer.SetInteger("X", 0);
+                animPlayer.SetInteger("Y", 1);
+
+                StartCoroutine(animJump());
+                */
             }
 
-            if (LastDirection == Direction.Kiri)
+            if (pDirection == Direction.Bawah)
             {
-                AnimTerbang(Direction.Kiri);
+                Physics2D.gravity = Vector2.down * GV;
+                rgbd2D.velocity = Vector2.zero;
+                rgbd2D.AddForce(Vector2.down * ForceAdded);
+
+                if (LastDirection == Direction.Atas)
+                {
+                    AnimTerbang(Direction.Atas);
+                }
+                if (LastDirection == Direction.Kanan)
+                {
+                    AnimTerbang(Direction.Kiri);
+                }
+                if (LastDirection == Direction.Kiri)
+                {
+                    AnimTerbang(Direction.Kanan);
+                }
+
+                /*
+                */
             }
 
-            if (LastDirection == Direction.Bawah)
+            if (pDirection == Direction.Kanan)
             {
-                AnimTerbang(Direction.Atas);
+                Physics2D.gravity = Vector2.right * GV;
+                rgbd2D.velocity = Vector2.zero;
+                rgbd2D.AddForce(Vector2.right * ForceAdded);
+
+                if (LastDirection == Direction.Kiri)
+                {
+                    AnimTerbang(Direction.Atas);
+                }
+
+                if (LastDirection == Direction.Bawah)
+                {
+                    AnimTerbang(Direction.Kanan);
+                }
+
+                if (LastDirection == Direction.Atas)
+                {
+                    AnimTerbang(Direction.Kiri);
+                }
+
+                /*
+                */
             }
 
-            //Animation
-            /*
-            animPlayer.SetInteger("X", 0);
-            animPlayer.SetInteger("Y", 1);
+            if (pDirection == Direction.Kiri)
+            {
+                Physics2D.gravity = Vector2.left * GV;
+                rgbd2D.velocity = Vector2.zero;
+                rgbd2D.AddForce(Vector2.left * ForceAdded);
 
-            StartCoroutine(animJump());
-            */
+                if (LastDirection == Direction.Kanan)
+                {
+                    AnimTerbang(Direction.Atas);
+                }
+
+                if (LastDirection == Direction.Atas)
+                {
+                    AnimTerbang(Direction.Kanan);
+                }
+
+                if (LastDirection == Direction.Bawah)
+                {
+                    AnimTerbang(Direction.Kiri);
+                }
+
+                /*
+                */
+            }
         }
-
-        if (pDirection == Direction.Bawah)
+        else
         {
-            Physics2D.gravity = Vector2.down * GV;
-            rgbd2D.velocity = Vector2.zero;
-            rgbd2D.AddForce(Vector2.down * 10);
+            if (animCollision.GetBool("isFinished"))
+            {
+                if (pDirection == Direction.Atas)
+                {
+                    Physics2D.gravity = Vector2.up * GV;
+                    rgbd2D.velocity = Vector2.zero;
+                    rgbd2D.AddForce(Vector2.up * ForceAdded);
 
-            if (LastDirection == Direction.Atas)
-            {
-                AnimTerbang(Direction.Atas);
-            }
-            if (LastDirection == Direction.Kanan)
-            {
-                AnimTerbang(Direction.Kiri);
-            }
-            if (LastDirection == Direction.Kiri)
-            {
-                AnimTerbang(Direction.Kanan);
-            }
+                    if (LastDirection == Direction.Kanan)
+                    {
+                        AnimTerbang(Direction.Kanan);
+                    }
 
-            /*
-            */
+                    if (LastDirection == Direction.Kiri)
+                    {
+                        AnimTerbang(Direction.Kiri);
+                    }
+
+                    if (LastDirection == Direction.Bawah)
+                    {
+                        AnimTerbang(Direction.Atas);
+                    }
+
+                    //Animation
+                    /*
+                    animPlayer.SetInteger("X", 0);
+                    animPlayer.SetInteger("Y", 1);
+
+                    StartCoroutine(animJump());
+                    */
+                }
+
+                if (pDirection == Direction.Bawah)
+                {
+                    Physics2D.gravity = Vector2.down * GV;
+                    rgbd2D.velocity = Vector2.zero;
+                    rgbd2D.AddForce(Vector2.down * ForceAdded);
+
+                    if (LastDirection == Direction.Atas)
+                    {
+                        AnimTerbang(Direction.Atas);
+                    }
+                    if (LastDirection == Direction.Kanan)
+                    {
+                        AnimTerbang(Direction.Kiri);
+                    }
+                    if (LastDirection == Direction.Kiri)
+                    {
+                        AnimTerbang(Direction.Kanan);
+                    }
+
+                    /*
+                    */
+                }
+
+                if (pDirection == Direction.Kanan)
+                {
+                    Physics2D.gravity = Vector2.right * GV;
+                    rgbd2D.velocity = Vector2.zero;
+                    rgbd2D.AddForce(Vector2.right * ForceAdded);
+
+                    if (LastDirection == Direction.Kiri)
+                    {
+                        AnimTerbang(Direction.Atas);
+                    }
+
+                    if (LastDirection == Direction.Bawah)
+                    {
+                        AnimTerbang(Direction.Kanan);
+                    }
+
+                    if (LastDirection == Direction.Atas)
+                    {
+                        AnimTerbang(Direction.Kiri);
+                    }
+
+                    /*
+                    */
+                }
+
+                if (pDirection == Direction.Kiri)
+                {
+                    Physics2D.gravity = Vector2.left * GV;
+                    rgbd2D.velocity = Vector2.zero;
+                    rgbd2D.AddForce(Vector2.left * ForceAdded);
+
+                    if (LastDirection == Direction.Kanan)
+                    {
+                        AnimTerbang(Direction.Atas);
+                    }
+
+                    if (LastDirection == Direction.Atas)
+                    {
+                        AnimTerbang(Direction.Kanan);
+                    }
+
+                    if (LastDirection == Direction.Bawah)
+                    {
+                        AnimTerbang(Direction.Kiri);
+                    }
+
+                    /*
+                    */
+                }
+            }
         }
-
-        if (pDirection == Direction.Kanan)
-        {
-            Physics2D.gravity = Vector2.right * GV;
-            rgbd2D.velocity = Vector2.zero;
-            rgbd2D.AddForce(Vector2.right * 10);
-
-            if (LastDirection == Direction.Kiri)
-            {
-                AnimTerbang(Direction.Atas);
-            }
-
-            if (LastDirection == Direction.Bawah)
-            {
-                AnimTerbang(Direction.Kanan);
-            }
-
-            if (LastDirection == Direction.Atas)
-            {
-                AnimTerbang(Direction.Kiri);
-            }
-            
-            /*
-            */
-        }
-
-        if (pDirection == Direction.Kiri)
-        {
-            Physics2D.gravity = Vector2.left * GV;
-            rgbd2D.velocity = Vector2.zero;
-            rgbd2D.AddForce(Vector2.left * 10);
-
-            if (LastDirection == Direction.Kanan)
-            {
-                AnimTerbang(Direction.Atas);
-            }
-
-            if (LastDirection == Direction.Atas)
-            {
-                AnimTerbang(Direction.Kanan);
-            }
-
-            if (LastDirection == Direction.Bawah)
-            {
-                AnimTerbang(Direction.Kiri);
-            }
-
-            /*
-            */
-        }
+        
+       
         /*
         box2D.isTrigger = true;
         cG.box2D.isTrigger = false;*/
@@ -310,78 +439,90 @@ public class PlayerControl : MonoBehaviour {
 
     IEnumerator animJump()
     {
-        animPlayer.SetBool("isFinished", false);
-        animCollision.SetBool("isFinished", false);
         box2D.isTrigger = true;
         cG.box2D.isTrigger = false;
         animPlayer.SetBool("StartJump", true);
         animCollision.SetBool("StartJump", true);
-        yield return new WaitForSeconds(0.45f);
+        yield return new WaitForSeconds(0.1f);
         animPlayer.SetBool("Terbang", true);
         animCollision.SetBool("Terbang", true);
     }
 
     IEnumerator animLanding()
     {
-        rgbd2D.Sleep();
-        rgbd2D.velocity = Vector3.zero;
-
-        rgbd2D.constraints = RigidbodyConstraints2D.FreezeRotation;
-        box2D.isTrigger = false;
-        cG.box2D.isTrigger = true;
-
-        if (pDirection == Direction.Atas)
+        if (justOnce)
         {
-            rotatePlayer.playerDirection = pDirection;
-            transform.localEulerAngles = new Vector3(0, 0, 180);
-            LastDirection = Direction.Atas;
-        }
-        if (pDirection == Direction.Bawah)
-        {
-            rotatePlayer.playerDirection = pDirection;
-            transform.localEulerAngles = new Vector3(0, 0, 0);
-            //transform.localEulerAngles = new Vector3(0, 0, 0);
-            LastDirection = Direction.Bawah;
-        }
-        if (pDirection == Direction.Kanan)
-        {
-            rotatePlayer.playerDirection = pDirection;
-            transform.localEulerAngles = new Vector3(0, 0, 90);
-            //transform.localEulerAngles = new Vector3(0, 0, 90);
-            LastDirection = Direction.Kanan;
-        }
-        if (pDirection == Direction.Kiri)
-        {
-            rotatePlayer.playerDirection = pDirection;
-            transform.localEulerAngles = new Vector3(0, 0, -90);
-            //transform.localEulerAngles = new Vector3(0, 0, -90);
-            LastDirection = Direction.Kiri;
-        }
 
-        animPlayer.SetBool("Mendarat", true);
-        animCollision.SetBool("Mendarat", true);
-        yield return new WaitForSeconds(1);
-        animPlayer.SetBool("Bangun", true);
-        animCollision.SetBool("Bangun", true);
-        yield return new WaitForSeconds(2f);
-        animPlayer.SetBool("StartJump", false);
-        animPlayer.SetBool("Terbang", false);
-        animPlayer.SetBool("Mendarat", false);
-        animPlayer.SetBool("Bangun", false);
+        }
+        else
+        {
+            rgbd2D.Sleep();
+            rgbd2D.velocity = Vector3.zero;
 
-        animCollision.SetBool("StartJump", false);
-        animCollision.SetBool("Terbang", false);
-        animCollision.SetBool("Mendarat", false);
-        animCollision.SetBool("Bangun", false);
-        yield return new WaitForSeconds(1);
-        animPlayer.SetBool("isFinished", true);
-        animCollision.SetBool("isFinished", true);
-        rgbd2D.WakeUp();
+            rgbd2D.constraints = RigidbodyConstraints2D.FreezeRotation;
+            box2D.isTrigger = false;
+            cG.box2D.isTrigger = true;
+
+            if (pDirection == Direction.Atas)
+            {
+                rotatePlayer.playerDirection = pDirection;
+                transform.localEulerAngles = new Vector3(0, 0, 180);
+                LastDirection = Direction.Atas;
+            }
+            if (pDirection == Direction.Bawah)
+            {
+                rotatePlayer.playerDirection = pDirection;
+                transform.localEulerAngles = new Vector3(0, 0, 0);
+                //transform.localEulerAngles = new Vector3(0, 0, 0);
+                LastDirection = Direction.Bawah;
+            }
+            if (pDirection == Direction.Kanan)
+            {
+                rotatePlayer.playerDirection = pDirection;
+                transform.localEulerAngles = new Vector3(0, 0, 90);
+                //transform.localEulerAngles = new Vector3(0, 0, 90);
+                LastDirection = Direction.Kanan;
+            }
+            if (pDirection == Direction.Kiri)
+            {
+                rotatePlayer.playerDirection = pDirection;
+                transform.localEulerAngles = new Vector3(0, 0, -90);
+                //transform.localEulerAngles = new Vector3(0, 0, -90);
+                LastDirection = Direction.Kiri;
+            }
+
+            animPlayer.SetBool("isFinished", false);
+            animCollision.SetBool("isFinished", false);
+            animPlayer.SetBool("Mendarat", true);
+            animCollision.SetBool("Mendarat", true);
+            yield return new WaitForSeconds(0.1f);
+            animPlayer.SetBool("Bangun", true);
+            animCollision.SetBool("Bangun", true);
+            yield return new WaitForSeconds(0.4f);
+
+            animPlayer.SetBool("StartJump", false);
+            animPlayer.SetBool("Terbang", false);
+            animPlayer.SetBool("Mendarat", false);
+            animPlayer.SetBool("Bangun", false);
+
+            animCollision.SetBool("StartJump", false);
+            animCollision.SetBool("Terbang", false);
+            animCollision.SetBool("Mendarat", false);
+            animCollision.SetBool("Bangun", false);
+            //yield return new WaitForSeconds(0.2f);
+            animPlayer.SetBool("isFinished", true);
+            animCollision.SetBool("isFinished", true);
+            rgbd2D.WakeUp();
+        }
+   
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        StartCoroutine(animLanding());
+        if (collision.gameObject.tag == "Wall")
+        {
+            StartCoroutine(animLanding());
+        }
     }
 
     void Landing()
@@ -391,22 +532,11 @@ public class PlayerControl : MonoBehaviour {
 
     public void anim_Bangun()
     {
-        animPlayer.SetBool("isFinished", true);
-        animCollision.SetBool("isFinished", true);
+        animPlayer.SetBool("Bangun", true);
+        animPlayer.SetBool("Bangun", true);
     }
 
     public void anim_Finished()
     {
-        animPlayer.SetBool("isFinished", false);
-        animPlayer.SetBool("Mendarat", false);
-        animPlayer.SetBool("Terbang", false);
-
-        animCollision.SetBool("isFinished", false);
-        animCollision.SetBool("Mendarat", false);
-        animCollision.SetBool("Terbang", false);
-        rgbd2D.constraints = RigidbodyConstraints2D.None;
-        onGround = true;
-        cG.isGround = false;
-        Debug.Log(bodyGround);
     }
 }
