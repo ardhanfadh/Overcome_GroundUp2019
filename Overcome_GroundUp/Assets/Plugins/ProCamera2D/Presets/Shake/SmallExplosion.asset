@@ -3,7 +3,7 @@
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
@@ -11,11 +11,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbf2b71a297b84564b930517da7ba2d8, type: 3}
   m_Name: SmallExplosion
   m_EditorClassIdentifier: 
-  Strength: {x: 1, y: 1, z: 0}
-  Duration: 0.253
-  Vibrato: 10
-  Randomness: 0.467
-  Smoothness: 0.0569
+  Strength: {x: 0.75, y: 0.75, z: 0}
+  Duration: 0.41
+  Vibrato: 18
+  Randomness: 0.199
+  Smoothness: 0.188
   UseRandomInitialAngle: 1
   InitialAngle: 0
   Rotation: {x: 0, y: 0, z: 0}

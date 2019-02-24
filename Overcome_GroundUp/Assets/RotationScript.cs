@@ -1,14 +1,24 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Com.LuisPedroFonseca.ProCamera2D;
 
 public class RotationScript : MonoBehaviour {
     public GameObject player;
     public Direction playerDirection;
     public bool isHalfSize;
+    [Space]
+    public ProCamera2DShake shakeCamera;
+    [Space]
+    public AudioSource audio;
+    [Space]
+    public AudioClip hitwall_Audio;
+    [Space]
+    public bool JustOnce;
 	// Use this for initialization
 	void Start () {
         playerDirection = Direction.Bawah;
+        PutarBawah();
 	}
 	
 	// Update is called once per frame
@@ -57,27 +67,52 @@ public class RotationScript : MonoBehaviour {
                 }
                 break;
         }
-       
         this.transform.rotation = player.transform.rotation;
 	}
 
+    public void landingSound()
+    {
+        shakeCamera.Shake(0);
+        Handheld.Vibrate();
+        audio.clip = hitwall_Audio;
+        audio.Play();
+    }
+
     public void PutarKiri()
     {
-        transform.eulerAngles = new Vector3 (0, 0, 270f);
+        if (!JustOnce)
+        {
+            JustOnce = true;
+            transform.localEulerAngles = new Vector3(0, 0, 270f);
+        }
     }
 
     public void PutarKanan()
     {
-        transform.eulerAngles = new Vector3(0, 0, 90f);
+        if (!JustOnce)
+        {
+            JustOnce = true;
+            transform.localEulerAngles = new Vector3(0, 0, 90f);
+
+        }
     }
 
     public void PutarAtas()
     {
-        transform.eulerAngles = new Vector3 (0, 0, 180f);
+        if (!JustOnce)
+        {
+            JustOnce = true;
+            transform.localEulerAngles = new Vector3(0, 0, 180f);
+        }
+       
     }
 
     public void PutarBawah()
     {
-        transform.eulerAngles = new Vector3 (0, 0, 0f);
+        if (!JustOnce)
+        {
+            JustOnce = true;
+            transform.localEulerAngles = new Vector3(0, 0, 0f);
+        }
     }
 }
