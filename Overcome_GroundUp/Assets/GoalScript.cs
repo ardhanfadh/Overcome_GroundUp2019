@@ -17,7 +17,13 @@ public class GoalScript : MonoBehaviour {
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        goalBox.isTrigger = true;
+        StartCoroutine(GoalAnim());
         dtween.DOPlay();
+    }
+
+    IEnumerator GoalAnim()
+    {
+        yield return new WaitForSeconds(0.3f);
+        goalBox.isTrigger = true;
     }
 }

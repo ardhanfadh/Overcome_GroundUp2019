@@ -73,18 +73,17 @@ public class ForceBox : MonoBehaviour {
 
     IEnumerator LemparAtas(PlayerControl player)
     {
-
+        player.rotatePlayer.PutarAtas();
         player.rgbd2D.bodyType = RigidbodyType2D.Kinematic;
         player.pDirection = Direction.Atas;
         player.rgbd2D.velocity = Vector2.zero;
         player.rgbd2D.constraints = RigidbodyConstraints2D.FreezePositionX;
         player.gameObject.transform.position = transform.position;
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0f);
         player.rgbd2D.bodyType = RigidbodyType2D.Dynamic;
         Physics2D.gravity = Vector2.up * player.GV;
         player.rgbd2D.velocity = Vector2.zero;
         player.rgbd2D.AddForce(Vector2.up * player.ForceAdded);
-        player.rotatePlayer.PutarAtas();
         player.animPlayer.SetBool("isForceAtas",true);
         player.animPlayer.SetBool("isForceAtas", true);
         player.animCollision.SetBool("isForceAtas", true);
@@ -102,17 +101,18 @@ public class ForceBox : MonoBehaviour {
 
     IEnumerator LemparBawah(PlayerControl player)
     {
+
+        player.rotatePlayer.PutarBawah();
         player.rgbd2D.bodyType = RigidbodyType2D.Kinematic;
         player.pDirection = Direction.Bawah;
         player.rgbd2D.velocity = Vector2.zero;
         player.rgbd2D.constraints = RigidbodyConstraints2D.FreezePositionX;
         player.gameObject.transform.position = transform.position;
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0f);
         player.rgbd2D.bodyType = RigidbodyType2D.Dynamic;
         Physics2D.gravity = Vector2.down * player.GV;
         player.rgbd2D.velocity = Vector2.zero;
         player.rgbd2D.AddForce(Vector2.down * player.ForceAdded);
-        player.rotatePlayer.PutarBawah();
         player.animPlayer.SetBool("isForceBawah", true);
         player.animPlayer.SetBool("isForceBawah", true);
         player.animCollision.SetBool("isForceBawah", true);
@@ -129,17 +129,17 @@ public class ForceBox : MonoBehaviour {
 
     IEnumerator LemparKanan(PlayerControl player)
     {
+        player.rotatePlayer.PutarKanan();
         player.rgbd2D.bodyType = RigidbodyType2D.Kinematic;
         player.pDirection = Direction.Kanan;
         player.rgbd2D.velocity = Vector2.zero;
         player.rgbd2D.constraints = RigidbodyConstraints2D.FreezePositionY;
         player.gameObject.transform.position = transform.position;
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0f);
         player.rgbd2D.bodyType = RigidbodyType2D.Dynamic;
         Physics2D.gravity = Vector2.right * player.GV;
         player.rgbd2D.velocity = Vector2.zero;
         player.rgbd2D.AddForce(Vector2.right * player.ForceAdded);
-        player.rotatePlayer.PutarKanan();
         player.animPlayer.SetBool("isForceKanan", true);
         player.animPlayer.SetBool("isForceKanan", true);
         player.animCollision.SetBool("isForceKanan", true);
@@ -156,17 +156,18 @@ public class ForceBox : MonoBehaviour {
 
     IEnumerator LemparKiri(PlayerControl player)
     {
+        
+        player.rotatePlayer.PutarKiri();
         player.rgbd2D.bodyType = RigidbodyType2D.Kinematic;
         player.pDirection = Direction.Kiri;
         player.rgbd2D.velocity = Vector2.zero;
         player.rgbd2D.constraints = RigidbodyConstraints2D.FreezePositionY;
         player.gameObject.transform.position = transform.position;
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0f);
         player.rgbd2D.bodyType = RigidbodyType2D.Dynamic;
         Physics2D.gravity = Vector2.left * player.GV;
         player.rgbd2D.velocity = Vector2.zero;
         player.rgbd2D.AddForce(Vector2.left * player.ForceAdded);
-        player.rotatePlayer.PutarKiri();
         player.animPlayer.SetBool("isForceKiri", true);
         player.animPlayer.SetBool("isForceKiri", true);
         player.animCollision.SetBool("isForceKiri", true);
