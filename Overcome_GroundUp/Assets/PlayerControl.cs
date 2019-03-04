@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Com.LuisPedroFonseca.ProCamera2D;
+using TMPro;
 
 public enum Direction
 {
@@ -47,7 +48,11 @@ public class PlayerControl : MonoBehaviour {
     public AudioSource audio;
     [Space]
     public AudioClip RagaSound;
-
+    public AudioClip hurtTrap;
+    [Space]
+    public int stepTaken;
+    [Space]
+    public TextMeshPro textMesh_UI;
 	// Use this for initialization
 	void Start () {
         GameObject.Find("SwipeController").GetComponent<SwipeControl>().SetMethodToCall(SwipeDetection);
@@ -67,6 +72,8 @@ public class PlayerControl : MonoBehaviour {
         StartCoroutine(animJump());
         LastDirection = Direction.Bawah;
         justOnce = false;
+        stepTaken = 0;
+        textMesh_UI.text = stepTaken + "";
     }
 
     private void SwipeDetection(SwipeControl.SWIPE_DIRECTION iDirection)
@@ -89,6 +96,7 @@ public class PlayerControl : MonoBehaviour {
                         Terbang(pDirection);
                         animPlayer.SetBool("isFinished", false);
                         animCollision.SetBool("isFinished", false);
+                        addStep();
                     }
                 }
                    
@@ -111,6 +119,7 @@ public class PlayerControl : MonoBehaviour {
                         Terbang(pDirection);
                         animPlayer.SetBool("isFinished", false);
                         animCollision.SetBool("isFinished", false);
+                        addStep();
                     }
                 }
 
@@ -134,6 +143,7 @@ public class PlayerControl : MonoBehaviour {
                         Terbang(pDirection);
                         animPlayer.SetBool("isFinished", false);
                         animCollision.SetBool("isFinished", false);
+                        addStep();
                     }
                 }
                     
@@ -156,6 +166,7 @@ public class PlayerControl : MonoBehaviour {
                         Terbang(pDirection);
                         animPlayer.SetBool("isFinished", false);
                         animCollision.SetBool("isFinished", false);
+                        addStep();
                     }
                 }
                 /*
@@ -615,5 +626,10 @@ public class PlayerControl : MonoBehaviour {
         rotatePlayer.JustOnce = false;
         justOnce = true; 
     }
-    
+
+    public void addStep()
+    {
+        stepTaken++;
+        textMesh_UI.text = stepTaken + "";
+    }
 }

@@ -18,13 +18,11 @@ public class detectingGround : MonoBehaviour {
     private void OnTriggerEnter2D(Collider2D collision)
     {
         isDetected = true;
-        Debug.Log(name + " Trigger is Detecting Ground");
 
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         isDetected = false;
-        Debug.Log(name + " Trigger is Exiting Ground");
     }
 }
