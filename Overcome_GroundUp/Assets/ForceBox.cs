@@ -79,7 +79,7 @@ public class ForceBox : MonoBehaviour {
         player.rgbd2D.velocity = Vector2.zero;
         player.rgbd2D.constraints = RigidbodyConstraints2D.FreezePositionX;
         player.gameObject.transform.position = transform.position;
-        yield return new WaitForSeconds(0 f);
+        yield return new WaitForSeconds(0);
         player.rgbd2D.bodyType = RigidbodyType2D.Dynamic;
         Physics2D.gravity = Vector2.up * player.GV;
         player.rgbd2D.velocity = Vector2.zero;

@@ -53,6 +53,8 @@ public class PlayerControl : MonoBehaviour {
     public int stepTaken;
     [Space]
     public TextMeshPro textMesh_UI;
+    [Space]
+    public SampleSkeletonFillUse hurtBlink;
 	// Use this for initialization
 	void Start () {
         GameObject.Find("SwipeController").GetComponent<SwipeControl>().SetMethodToCall(SwipeDetection);
@@ -631,5 +633,13 @@ public class PlayerControl : MonoBehaviour {
     {
         stepTaken++;
         textMesh_UI.text = stepTaken + "";
+    }
+
+    public void trapAddStep()
+    {
+        addStep();
+        StartCoroutine(hurtBlink.FlashRoutine());
+        audio.clip = hurtTrap;
+        audio.Play();
     }
 }

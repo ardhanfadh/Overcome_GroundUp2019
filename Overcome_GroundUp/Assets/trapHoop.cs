@@ -24,28 +24,28 @@ public class trapHoop : MonoBehaviour {
                     if (collision.GetComponent<PlayerControl>().pDirection == Direction.Atas ||
                         collision.GetComponent<PlayerControl>().pDirection == Direction.Bawah)
                     {
-                        collision.GetComponent<PlayerControl>().addStep();
+                        collision.GetComponent<PlayerControl>().trapAddStep();
                     }
                     break;
                 case Direction.Bawah:
                     if (collision.GetComponent<PlayerControl>().pDirection == Direction.Atas ||
                        collision.GetComponent<PlayerControl>().pDirection == Direction.Bawah)
                     {
-                        collision.GetComponent<PlayerControl>().addStep();
+                        collision.GetComponent<PlayerControl>().trapAddStep();
                     }
                     break;
                 case Direction.Kanan:
                     if (collision.GetComponent<PlayerControl>().pDirection == Direction.Kanan ||
                         collision.GetComponent<PlayerControl>().pDirection == Direction.Kiri)
                     {
-                        collision.GetComponent<PlayerControl>().addStep();
+                        collision.GetComponent<PlayerControl>().trapAddStep();
                     }
                     break;
                 case Direction.Kiri:
                     if (collision.GetComponent<PlayerControl>().pDirection == Direction.Kanan ||
                         collision.GetComponent<PlayerControl>().pDirection == Direction.Kiri)
                     {
-                        collision.GetComponent<PlayerControl>().addStep();
+                        collision.GetComponent<PlayerControl>().trapAddStep();
                     }
                     break;
             }
