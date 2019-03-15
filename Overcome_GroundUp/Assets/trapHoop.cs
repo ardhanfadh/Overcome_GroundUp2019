@@ -24,6 +24,7 @@ public class trapHoop : MonoBehaviour {
                     if (collision.GetComponent<PlayerControl>().pDirection == Direction.Atas ||
                         collision.GetComponent<PlayerControl>().pDirection == Direction.Bawah)
                     {
+                        Handheld.Vibrate();
                         collision.GetComponent<PlayerControl>().trapAddStep();
                     }
                     break;
@@ -31,6 +32,7 @@ public class trapHoop : MonoBehaviour {
                     if (collision.GetComponent<PlayerControl>().pDirection == Direction.Atas ||
                        collision.GetComponent<PlayerControl>().pDirection == Direction.Bawah)
                     {
+                        Handheld.Vibrate();
                         collision.GetComponent<PlayerControl>().trapAddStep();
                     }
                     break;
@@ -38,6 +40,7 @@ public class trapHoop : MonoBehaviour {
                     if (collision.GetComponent<PlayerControl>().pDirection == Direction.Kanan ||
                         collision.GetComponent<PlayerControl>().pDirection == Direction.Kiri)
                     {
+                        Handheld.Vibrate();
                         collision.GetComponent<PlayerControl>().trapAddStep();
                     }
                     break;
@@ -45,6 +48,7 @@ public class trapHoop : MonoBehaviour {
                     if (collision.GetComponent<PlayerControl>().pDirection == Direction.Kanan ||
                         collision.GetComponent<PlayerControl>().pDirection == Direction.Kiri)
                     {
+                        Handheld.Vibrate();
                         collision.GetComponent<PlayerControl>().trapAddStep();
                     }
                     break;

@@ -5,6 +5,7 @@ using System.Collections;
 public class ExplodeOnClick : MonoBehaviour {
 
 	private Explodable _explodable;
+    public parentExplode parentObject;
 
 	void Start()
 	{
@@ -20,14 +21,18 @@ public class ExplodeOnClick : MonoBehaviour {
     {
         if (collision.gameObject.tag == "Player")
         {
-            _explodable.explode();
-            ExplosionForce ef = GameObject.FindObjectOfType<ExplosionForce>();
-            ef.doExplosion(transform.position);
-            StartCoroutine(WaitDissapear());
+            parentObject.isExplode = true;
+            StartCoroutine(waitExplode());
+
         }
     }
-    IEnumerator WaitDissapear()
+
+    public IEnumerator waitExplode()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.01f);
+        _explodable.explode();
+        ExplosionForce ef = GameObject.FindObjectOfType<ExplosionForce>();
+        ef.doExplosion(transform.position);
+
     }
 }

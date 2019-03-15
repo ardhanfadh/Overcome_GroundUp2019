@@ -1136,11 +1136,14 @@ AnimatorStateTransition:
   - m_ConditionMode: 1
     m_ConditionEvent: StartJump
     m_EventTreshold: 0
-  - m_ConditionMode: 2
+  - m_ConditionMode: 1
     m_ConditionEvent: Terbang
     m_EventTreshold: 0
   - m_ConditionMode: 2
     m_ConditionEvent: isFinished
+    m_EventTreshold: 0
+  - m_ConditionMode: 1
+    m_ConditionEvent: Mendarat
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102189854871390642}
@@ -3140,8 +3143,14 @@ AnimatorStateTransition:
   - m_ConditionMode: 1
     m_ConditionEvent: StartJump
     m_EventTreshold: 0
-  - m_ConditionMode: 2
+  - m_ConditionMode: 1
     m_ConditionEvent: Terbang
+    m_EventTreshold: 0
+  - m_ConditionMode: 1
+    m_ConditionEvent: Mendarat
+    m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: isFinished
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102445547218202748}
@@ -4463,8 +4472,11 @@ AnimatorStateTransition:
   - m_ConditionMode: 1
     m_ConditionEvent: StartJump
     m_EventTreshold: 0
-  - m_ConditionMode: 2
+  - m_ConditionMode: 1
     m_ConditionEvent: Terbang
+    m_EventTreshold: 0
+  - m_ConditionMode: 1
+    m_ConditionEvent: Mendarat
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102546625477488382}
@@ -6644,8 +6656,14 @@ AnimatorStateTransition:
   - m_ConditionMode: 1
     m_ConditionEvent: StartJump
     m_EventTreshold: 0
-  - m_ConditionMode: 2
+  - m_ConditionMode: 1
     m_ConditionEvent: Terbang
+    m_EventTreshold: 0
+  - m_ConditionMode: 1
+    m_ConditionEvent: Mendarat
+    m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: isFinished
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102290382017009006}
@@ -11774,7 +11792,7 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: 1102053759892998630}
-    m_Position: {x: 360, y: 192, z: 0}
+    m_Position: {x: 264, y: 180, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102118703133950604}
     m_Position: {x: 504, y: 0, z: 0}

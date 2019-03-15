@@ -1426,6 +1426,18 @@ AnimatorStateTransition:
   - m_ConditionMode: 1
     m_ConditionEvent: isFinished
     m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: StartJump
+    m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: Terbang
+    m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: Mendarat
+    m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: Bangun
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102634106597582372}
   m_Solo: 0
@@ -3716,7 +3728,7 @@ AnimatorStateMachine:
     m_Position: {x: -792, y: 672, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102549161497310222}
-    m_Position: {x: 780, y: 612, z: 0}
+    m_Position: {x: 864, y: 600, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102668347958706192}
     m_Position: {x: 540, y: 444, z: 0}
@@ -3786,7 +3798,7 @@ AnimatorStateMachine:
   m_StateMachineTransitions: {}
   m_StateMachineBehaviours: []
   m_AnyStatePosition: {x: 1284, y: 972, z: 0}
-  m_EntryPosition: {x: 132, y: 1056, z: 0}
+  m_EntryPosition: {x: 84, y: 1044, z: 0}
   m_ExitPosition: {x: 672, y: 1056, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
   m_DefaultState: {fileID: 1102634106597582372}

@@ -73,7 +73,6 @@ public class RotationScript : MonoBehaviour {
     public void landingSound()
     {
         shakeCamera.Shake(0);
-        Handheld.Vibrate();
         audio.clip = hitwall_Audio;
         audio.Play();
     }

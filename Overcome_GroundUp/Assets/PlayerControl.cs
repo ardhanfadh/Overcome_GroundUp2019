@@ -49,15 +49,30 @@ public class PlayerControl : MonoBehaviour {
     [Space]
     public AudioClip RagaSound;
     public AudioClip hurtTrap;
+    public AudioClip DeathClip;
+    public AudioClip SwipeClip;
     [Space]
     public int stepTaken;
     [Space]
     public TextMeshPro textMesh_UI;
     [Space]
     public SampleSkeletonFillUse hurtBlink;
+    [Space]
+    ExplosionForce ef;
+    public GameObject StartPlayer;
+    public GameObject EndPlayer;
+    public Explodable explodablePlayer;
+    [Space]
+    public bool DeathOnce;
+    [Space]
+    public ProCamera2DTransitionsFX pc2dTransition;
 	// Use this for initialization
 	void Start () {
+        pc2dTransition.TransitionEnter();
         GameObject.Find("SwipeController").GetComponent<SwipeControl>().SetMethodToCall(SwipeDetection);
+        StartPlayer.SetActive(true);
+        EndPlayer.SetActive(false);
+        ef = GameObject.FindObjectOfType<ExplosionForce>();
         //Debug
         GV = 3f;
         ForceAdded = 200;
@@ -95,10 +110,13 @@ public class PlayerControl : MonoBehaviour {
                         pDirection = Direction.Bawah;
 
                         rgbd2D.constraints = RigidbodyConstraints2D.FreezePositionX;
+                        rgbd2D.constraints = RigidbodyConstraints2D.FreezeRotation;
                         Terbang(pDirection);
                         animPlayer.SetBool("isFinished", false);
                         animCollision.SetBool("isFinished", false);
                         addStep();
+                        audio.clip = SwipeClip;
+                        audio.Play();
                     }
                 }
                    
@@ -118,10 +136,13 @@ public class PlayerControl : MonoBehaviour {
                         pDirection = Direction.Kiri;
 
                         rgbd2D.constraints = RigidbodyConstraints2D.FreezePositionY;
+                        rgbd2D.constraints = RigidbodyConstraints2D.FreezeRotation;
                         Terbang(pDirection);
                         animPlayer.SetBool("isFinished", false);
                         animCollision.SetBool("isFinished", false);
                         addStep();
+                        audio.clip = SwipeClip;
+                        audio.Play();
                     }
                 }
 
@@ -141,11 +162,14 @@ public class PlayerControl : MonoBehaviour {
                         pDirection = Direction.Kanan;
 
                         rgbd2D.constraints = RigidbodyConstraints2D.FreezePositionY;
+                        rgbd2D.constraints = RigidbodyConstraints2D.FreezeRotation;
 
                         Terbang(pDirection);
                         animPlayer.SetBool("isFinished", false);
                         animCollision.SetBool("isFinished", false);
                         addStep();
+                        audio.clip = SwipeClip;
+                        audio.Play();
                     }
                 }
                     
@@ -164,11 +188,14 @@ public class PlayerControl : MonoBehaviour {
                     {
                         pDirection = Direction.Atas;
                         rgbd2D.constraints = RigidbodyConstraints2D.FreezePositionX;
+                        rgbd2D.constraints = RigidbodyConstraints2D.FreezeRotation;
 
                         Terbang(pDirection);
                         animPlayer.SetBool("isFinished", false);
                         animCollision.SetBool("isFinished", false);
                         addStep();
+                        audio.clip = SwipeClip;
+                        audio.Play();
                     }
                 }
                 /*
@@ -195,6 +222,11 @@ public class PlayerControl : MonoBehaviour {
         {
             animPlayer.SetBool("isFinished", false);
             animCollision.SetBool("isFinished", false);
+        }
+        if (stepTaken >= 5 && !DeathOnce)
+        {
+            Death();
+            DeathOnce = true;
         }
     }
     // Update is called once per frame
@@ -533,8 +565,6 @@ public class PlayerControl : MonoBehaviour {
             justOnce = true;
             rgbd2D.Sleep();
             rgbd2D.velocity = Vector3.zero;
-
-            rgbd2D.constraints = RigidbodyConstraints2D.FreezeRotation;
             box2D.isTrigger = false;
             cG.box2D.isTrigger = true;
 
@@ -598,6 +628,7 @@ public class PlayerControl : MonoBehaviour {
     {
         animPlayer.SetBool("isCompleted", true);
         animCollision.SetBool("isCompleted", true);
+        rgbd2D.constraints = RigidbodyConstraints2D.FreezeAll;
         isCompleted = true;
         audio.clip = RagaSound;
         audio.Play();
@@ -641,5 +672,28 @@ public class PlayerControl : MonoBehaviour {
         StartCoroutine(hurtBlink.FlashRoutine());
         audio.clip = hurtTrap;
         audio.Play();
+    }
+
+    public void Death()
+    {
+        StartCoroutine(wait());
+
+    }
+
+    IEnumerator wait()
+    {
+        yield return new WaitForSeconds(0.75f);
+        audio.clip = DeathClip;
+        audio.Play();
+        Handheld.Vibrate();
+        StartPlayer.SetActive(false);
+        EndPlayer.SetActive(true);
+        explodablePlayer.explode();
+        ef.doExplosion(EndPlayer.transform.position);
+        yield return new WaitForSeconds(2f);
+        pc2dTransition.TransitionExit();
+        yield return new WaitForSeconds(1.6f);
+        //Application.LoadLevel(Application.loadedLevel);
+
     }
 }
