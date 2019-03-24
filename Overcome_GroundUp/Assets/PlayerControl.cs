@@ -53,6 +53,8 @@ public class PlayerControl : MonoBehaviour {
     public AudioClip SwipeClip;
     [Space]
     public int stepTaken;
+    public int stepNeeded;
+    public int stepRemain;
     [Space]
     public TextMeshPro textMesh_UI;
     [Space]
@@ -66,8 +68,11 @@ public class PlayerControl : MonoBehaviour {
     public bool DeathOnce;
     [Space]
     public ProCamera2DTransitionsFX pc2dTransition;
+    [Space]
+    public GlitchEffect glitch;
 	// Use this for initialization
 	void Start () {
+        glitch.enabled = !glitch.enabled;
         pc2dTransition.TransitionEnter();
         GameObject.Find("SwipeController").GetComponent<SwipeControl>().SetMethodToCall(SwipeDetection);
         StartPlayer.SetActive(true);
@@ -664,6 +669,7 @@ public class PlayerControl : MonoBehaviour {
     {
         stepTaken++;
         textMesh_UI.text = stepTaken + "";
+        glitch.enabled = !glitch.enabled;
     }
 
     public void trapAddStep()
